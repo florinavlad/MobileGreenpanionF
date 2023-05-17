@@ -22,7 +22,7 @@
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="330dp"
-        android:layout_height="530dp"
+        android:layout_height="590dp"
         android:background="@drawable/shape_forms"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,11 +35,11 @@
         android:id="@+id/registerButton"
         android:layout_width="129dp"
         android:layout_height="wrap_content"
-        android:text="@string/submit_btn"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:letterSpacing="0.1"
         android:layout_marginBottom="8dp"
+        android:letterSpacing="0.1"
+        android:text="@string/submit_btn"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout" />
@@ -54,18 +54,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/register_bg"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
+        app:layout_constraintTop_toTopOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.6" />
 
     <TextView
         android:id="@+id/text_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
         android:letterSpacing="0.09"
-        android:layout_marginTop="67dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="@dimen/login_register_text_size"
         android:text="@string/title_register"
+        android:textColor="@color/white"
+        android:textSize="@dimen/login_register_text_size"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/register_bg"
         app:layout_constraintStart_toStartOf="@+id/register_bg"
         app:layout_constraintTop_toTopOf="@+id/relativeLayout" />
@@ -92,7 +93,7 @@
         android:ems="10"
         android:hint="Nume"
         android:inputType="text"
-        android:paddingTop="35dp"
+        android:paddingTop="25dp"
         android:text=""
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -101,61 +102,121 @@
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@+id/text_reg" />
 
+    <TextView
+        android:id="@+id/tv_Name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/registerName1"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@+id/registerName1"
+        app:layout_constraintTop_toTopOf="@+id/registerName1" />
+
     <EditText
         android:id="@+id/registerName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Prenume"
-        android:paddingTop="15dp"
         android:alpha="0.6"
-        android:text=""
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
         android:autofillHints="Prenume"
+        android:ems="10"
+        android:hint="Prenume"
+        android:inputType="text"
+        android:paddingTop="15dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/registerName1" />
+
+    <TextView
+        android:id="@+id/tv_Name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="@+id/registerName2"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@+id/registerName2"
         app:layout_constraintTop_toBottomOf="@+id/registerName1" />
 
     <EditText
         android:id="@+id/registerEmailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:alpha="0.6"
+        android:autofillHints="Adresă Email"
         android:ems="10"
         android:hint="Email"
-        android:alpha="0.6"
-        android:text=""
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
-        android:paddingTop="15dp"
-        android:autofillHints="Adresă Email"
         android:inputType="textEmailAddress"
+        android:paddingTop="15dp"
+        android:paddingBottom="25dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@+id/registerName2" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/registerEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@+id/registerEmailAddress"
+        app:layout_constraintTop_toBottomOf="@+id/registerName2" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/state_Spinner"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@+id/state_Spinner"
+        app:layout_constraintTop_toTopOf="@+id/state_Spinner" />
 
     <Spinner
         android:id="@+id/state_Spinner"
         android:layout_width="228dp"
         android:layout_height="51dp"
         android:gravity="bottom"
-        android:paddingTop="20dp"
+        android:padding="10dp"
         android:popupBackground="@color/white"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@+id/registerEmailAddress" />
 
+    <TextView
+        android:id="@+id/tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/city_Spinner"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@+id/city_Spinner"
+        app:layout_constraintTop_toTopOf="@+id/city_Spinner" />
+
     <Spinner
         android:id="@+id/city_Spinner"
         android:layout_width="228dp"
         android:layout_height="50dp"
         android:gravity="bottom"
-        android:paddingTop="20dp"
-        android:spinnerMode="dropdown"
-        android:layout_marginBottom="15dp"
+        android:padding="10dp"
         android:popupBackground="@color/white"
+        android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
         app:layout_constraintTop_toBottomOf="@+id/state_Spinner" />
@@ -164,33 +225,57 @@
         android:id="@+id/registerPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
         android:alpha="0.6"
-        android:textColor="@color/white"
-        android:paddingTop="15dp"
         android:autofillHints="Parola"
+        android:ems="10"
         android:hint="Parolă"
+        android:inputType="textPassword"
+        android:paddingTop="25dp"
         android:text=""
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/city_Spinner" />
+
+    <TextView
+        android:id="@+id/tv_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="@+id/registerPassword"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@+id/registerPassword"
         app:layout_constraintTop_toBottomOf="@+id/city_Spinner" />
 
     <EditText
         android:id="@+id/register_ConfirmPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Confirmă parola"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
         android:alpha="0.6"
-        android:text=""
+        android:ems="10"
+        android:hint="Confirmă parola"
+        android:inputType="textPassword"
         android:paddingTop="17dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
         app:layout_constraintStart_toStartOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
+
+    <TextView
+        android:id="@+id/tv_confirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/register_ConfirmPassword"
+        app:layout_constraintEnd_toEndOf="@+id/relativeLayout"
+        app:layout_constraintStart_toEndOf="@+id/register_ConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/registerPassword" />
 
 

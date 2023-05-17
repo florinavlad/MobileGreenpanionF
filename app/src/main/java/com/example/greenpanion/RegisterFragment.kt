@@ -1,23 +1,42 @@
 package com.example.greenpanion
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
 
 class RegisterFragment : Fragment() {
 
     private lateinit var stateSpinner: Spinner
     private lateinit var citySpinner: Spinner
-
     private lateinit var stateAdapter: ArrayAdapter<CharSequence>
     private lateinit var cityAdapter: ArrayAdapter<CharSequence>
     private lateinit var selectedState: String
     private lateinit var selectedCity: String
+    private lateinit var registerBtn: Button
+    private lateinit var tvState: TextView
+    private lateinit var tvCity: TextView
+    private lateinit var tvName1: TextView
+    private lateinit var tvName2: TextView
+    private lateinit var tvEmail: TextView
+    private lateinit var tvPassword: TextView
+    private lateinit var tvConfPass: TextView
+    private lateinit var etRegisterName1: EditText
+    private lateinit var etRegisterName2: EditText
+    private lateinit var etRegisterEmail: EditText
+    private lateinit var etRegisterPass: EditText
+    private lateinit var etRegisterConfirmPass: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -144,33 +163,103 @@ class RegisterFragment : Fragment() {
                             // code for handling other cases
                         }
                     }
+
                     cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                     citySpinner.adapter = cityAdapter
 
-//                    citySpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-//                        override fun onItemSelected(
-//                            parent: AdapterView<*>?,
-//                            view: View?,
-//                            position: Int,
-//                            id: Long
-//                        ) {
-//                            selectedCity = citySpinner.selectedItem.toString()
-//                        }
-//
-//                        override fun onNothingSelected(parent: AdapterView<*>?) {
-//                            TODO("Not yet implemented")
-//                        }
+                    citySpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+                        override fun onItemSelected(
+                            parent: AdapterView<*>?,
+                            view: View?,
+                            position: Int,
+                            id: Long
+                        ) {
+                            selectedCity = citySpinner.selectedItem.toString()
+                        }
 
-//                    }
+                        override fun onNothingSelected(parent: AdapterView<*>?) {
+                        }
+
+                    }
                 }
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
             }
 
         }
 
 
+
+        registerBtn = view.findViewById(R.id.registerButton)
+
+        tvName1 = view.findViewById(R.id.tv_Name1)
+        tvName2 = view.findViewById(R.id.tv_Name2)
+        tvEmail = view.findViewById(R.id.tv_email)
+        tvState = view.findViewById(R.id.tv_state)
+        tvCity = view.findViewById(R.id.tv_city)
+        tvPassword = view.findViewById(R.id.tv_password)
+        tvConfPass = view.findViewById(R.id.tv_confirmPassword)
+        etRegisterEmail = view.findViewById(R.id.registerEmailAddress)
+        etRegisterPass = view.findViewById(R.id.registerPassword)
+        etRegisterConfirmPass = view.findViewById(R.id.register_ConfirmPassword)
+        etRegisterName1 = view.findViewById(R.id.registerName1)
+        etRegisterName2 = view.findViewById(R.id.registerName2)
+
+        registerBtn.setOnClickListener {
+
+            val registerName1 = etRegisterName1.text.toString()
+            val registerName2 = etRegisterName2.text.toString()
+            val registerEmail = etRegisterEmail.text.toString()
+            val registerPassword = etRegisterPass.text.toString()
+            val confirmPassword = etRegisterConfirmPass.text.toString().trim()
+
+            if (registerName1.isEmpty()) {
+                tvName1.error = "Nume obligatoriu!"
+                tvName1.requestFocus()
+            }
+            else if (registerName2.isEmpty()) {
+                tvName2.error = "Prenume obligatoriu!"
+                tvName2.requestFocus()
+            }
+            else if (registerEmail.isEmpty()) {
+                tvEmail.error = "Email obligatoriu!"
+                tvEmail.requestFocus()
+            }
+            else if (selectedState == "Selectează județul") {
+                Toast.makeText(requireContext(), "Selectează județul tău din listă", Toast.LENGTH_LONG).show()
+                tvState.error = "Județ obligatoriu!"
+                tvState.requestFocus()
+            }
+            else if(selectedCity == "Selectează orașul") {
+                Toast.makeText(requireContext(), "Selectează orașul tău din listă", Toast.LENGTH_LONG).show()
+                tvCity.error = "Oraș obligatoriu!"
+                tvCity.requestFocus()
+            }
+            else if (registerPassword.isEmpty()) {
+                tvPassword.error = "Parola obligatorie!"
+                tvPassword.requestFocus()
+            }
+            else if (confirmPassword.isEmpty()) {
+                tvConfPass.error = "Confirmare obligatorie!"
+                tvConfPass.requestFocus()
+            }
+            else if ( registerPassword.length < 6) {
+                Toast.makeText(requireContext(), "Parola ta trebuie să aibă cel puțin 6 caractere!", Toast.LENGTH_LONG).show()
+            }
+            else if ( registerPassword != confirmPassword) {
+                Toast.makeText(requireContext(), "Parolele trebuie să fie identice!",Toast.LENGTH_LONG).show()
+            }
+            else {
+                tvName1.error = null
+                tvName2.error = null
+                tvEmail.error = null
+                tvState.error = null
+                tvCity.error = null
+                tvPassword.error = null
+                tvConfPass.error = null
+
+            }
+        }
     }
 }
