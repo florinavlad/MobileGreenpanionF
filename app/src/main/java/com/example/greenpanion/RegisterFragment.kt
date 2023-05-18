@@ -1,8 +1,6 @@
 package com.example.greenpanion
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -186,10 +184,7 @@ class RegisterFragment : Fragment() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
-
         }
-
-
 
         registerBtn = view.findViewById(R.id.registerButton)
 

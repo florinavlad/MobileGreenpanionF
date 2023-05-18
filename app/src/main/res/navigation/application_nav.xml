@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_mapPrizesFragment"
+            app:destination="@id/mapPrizesFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -47,9 +50,6 @@
             android:id="@+id/action_homeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_howRecycleFragment"
-            app:destination="@id/howRecycleFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_mapPrizesFragment"
             app:destination="@id/mapPrizesFragment" />
         <action
@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_homeFragment_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_howRecycleFragment"
+            app:destination="@id/howRecycleFragment" />
     </fragment>
     <fragment
         android:id="@+id/howRecycleFragment"
@@ -79,9 +82,4 @@
         android:name="com.example.greenpanion.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
-    <fragment
-        android:id="@+id/scrollingFragment"
-        android:name="com.example.greenpanion.ScrollingFragment"
-        android:label="fragment_scrolling"
-        tools:layout="@layout/fragment_scrolling" />
 </navigation>
