@@ -1,6 +1,7 @@
 package com.example.greenpanion
 
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -208,6 +209,7 @@ class RegisterFragment : Fragment() {
             val registerEmail = etRegisterEmail.text.toString()
             val registerPassword = etRegisterPass.text.toString()
             val confirmPassword = etRegisterConfirmPass.text.toString().trim()
+            val passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$".toRegex()
 
             if (registerName1.isEmpty()) {
                 tvName1.error = "Nume obligatoriu!"
@@ -219,6 +221,11 @@ class RegisterFragment : Fragment() {
             }
             else if (registerEmail.isEmpty()) {
                 tvEmail.error = "Email obligatoriu!"
+                tvEmail.requestFocus()
+            }
+            else if (!Patterns.EMAIL_ADDRESS.matcher(registerEmail).matches()){
+                Toast.makeText(requireContext(), "Introduceți un email valid!", Toast.LENGTH_LONG).show()
+                tvEmail.error = "Email invalid!"
                 tvEmail.requestFocus()
             }
             else if (selectedState == "Selectează județul") {
@@ -239,9 +246,14 @@ class RegisterFragment : Fragment() {
                 tvConfPass.error = "Confirmare obligatorie!"
                 tvConfPass.requestFocus()
             }
-            else if ( registerPassword.length < 6) {
-                Toast.makeText(requireContext(), "Parola ta trebuie să aibă cel puțin 6 caractere!", Toast.LENGTH_LONG).show()
+            else if(!passwordPattern.matches(registerPassword)) {
+                Toast.makeText(requireContext(), "Parola trebuie să conțină cel puțin o literă și un număr, și să aibă cel puțin 6 caractere!", Toast.LENGTH_LONG).show()
+                tvPassword.error = "Parolă invalidă!"
+                tvPassword.requestFocus()
             }
+//            else if ( registerPassword.length < 6) {
+//                Toast.makeText(requireContext(), "Parola ta trebuie să aibă cel puțin 6 caractere!", Toast.LENGTH_LONG).show()
+//            }
             else if ( registerPassword != confirmPassword) {
                 Toast.makeText(requireContext(), "Parolele trebuie să fie identice!",Toast.LENGTH_LONG).show()
             }
