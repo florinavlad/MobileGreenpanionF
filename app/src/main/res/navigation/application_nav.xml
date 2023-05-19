@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_loginFragment_to_mapPrizesFragment"
             app:destination="@id/mapPrizesFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_howRecycleFragment"
+            app:destination="@id/howRecycleFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"

@@ -1,6 +1,7 @@
 package com.example.greenpanion
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
 
 class RegisterFragment : Fragment() {
 
@@ -50,6 +52,12 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        val scanBtn = view.findViewById<Button>(R.id.registerButton)
+//        scanBtn.setOnClickListener(){
+//            Log.v("FlorinaTag", "buton")
+//            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_howRecycleFragment)
+//        }
 
         stateSpinner = view.findViewById(R.id.state_Spinner)
         stateAdapter = ArrayAdapter.createFromResource(requireActivity(), R.array.array_of_states, R.layout.spinner_layout)

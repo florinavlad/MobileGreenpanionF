@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
 
         val mapBtn = view.findViewById<Button>(R.id.login_btn)
         mapBtn.setOnClickListener(){
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mapPrizesFragment)
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_howRecycleFragment)
         }
     }
     companion object {
